@@ -39,27 +39,47 @@ public class tree_orders {
 		}
 
 		List<Integer> inOrder() {
-			ArrayList<Integer> result = new ArrayList<Integer>();
-                        // Finish the implementation
-                        // You may need to add a new recursive method to do that
-                        
-			return result;
+			return iny(0);
 		}
-
+		ArrayList<Integer> r1 = new ArrayList<Integer>();
 		List<Integer> preOrder() {
-			ArrayList<Integer> result = new ArrayList<Integer>();
-                        // Finish the implementation
-                        // You may need to add a new recursive method to do that
-                        
-			return result;
+			return pre(0);
 		}
-
+		ArrayList<Integer> r2 = new ArrayList<Integer>();
 		List<Integer> postOrder() {
-			ArrayList<Integer> result = new ArrayList<Integer>();
-                        // Finish the implementation
-                        // You may need to add a new recursive method to do that
-                        
-			return result;
+			return pos(0);
+		}
+		public ArrayList<Integer> pos(int a)
+		{
+			if(a!=-1)
+			{
+				pos(left[a]);
+				pos(right[a]);
+				r2.add(key[a]);
+			}
+			return r2;
+		}
+		ArrayList<Integer> r= new ArrayList<Integer>();
+		public ArrayList<Integer> iny(int a)
+		{
+			if(a!=-1)
+			{
+				iny(left[a]);
+				r.add(key[a]);
+				iny(right[a]);
+			}
+			return r;
+		}
+		public ArrayList<Integer> pre(int a)
+		{
+
+			if(a!=-1)
+			{
+				r1.add(key[a]);
+				pre(left[a]);
+				pre(right[a]);
+			}
+			return r1;
 		}
 	}
 
